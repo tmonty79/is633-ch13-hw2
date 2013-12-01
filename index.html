@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Anthony Montalvo - IS698, Fall 2013, Chapter 13, HW2</title>
+	<link rel="stylesheet" href="raffler.css" media="screen">
+</head>
+<body>
+	<header id="header">
+    <h1>HW2</h1>
+  </header>
+	<section id="raffler"></section>
+
+	<script type="text/template" id="item-template">
+		<div id="form">
+			<input id="new_entry"  autofocus="autofocus" placeholder="Enter a new name" />
+			<input id="add" type="submit" value="Add" />
+		</div>
+		<ul>
+			<% _.each(entries, function(entry) { %>
+				<li id="<%- entry.id %>">
+					<%- entry.name %>
+					<span class="entry-winner"><% if (entry.winner) { %>WINNER<% } %></span>
+				</li>
+			<% }); %>
+		</ul>
+		<div id="chooser">
+			<button id="draw">Draw Winner</button>
+			<button id="reset">Reset</button>
+		</div>
+  </script>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/backbone-min.js"></script>
+<script src="lib/backbone.localStorage.js"></script>
+<script src="src/raffler.js"></script>
+
+</body>
+</html>
